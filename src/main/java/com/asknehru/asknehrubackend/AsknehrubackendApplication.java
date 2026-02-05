@@ -1,13 +1,13 @@
-package com.asknehru.demoapp;
+package com.asknehru.asknehrubackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoappApplication {
+public class AsknehrubackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoappApplication.class, args);
+		SpringApplication.run(AsknehrubackendApplication.class, args);
 	}
 
 }

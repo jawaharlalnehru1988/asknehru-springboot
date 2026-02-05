@@ -1,4 +1,4 @@
-package com.asknehru.demoapp.security;
+package com.asknehru.asknehrubackend.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

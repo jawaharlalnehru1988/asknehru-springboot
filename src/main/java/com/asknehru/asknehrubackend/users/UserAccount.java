@@ -1,4 +1,4 @@
-package com.asknehru.demoapp.users;
+package com.asknehru.asknehrubackend.users;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

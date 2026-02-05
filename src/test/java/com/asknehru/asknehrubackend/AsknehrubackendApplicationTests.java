@@ -1,10 +1,10 @@
-package com.asknehru.demoapp;
+package com.asknehru.asknehrubackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoappApplicationTests {
+class AsknehrubackendApplicationTests {
 
 	@Test
 	void contextLoads() {

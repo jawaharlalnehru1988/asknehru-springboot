@@ -1,7 +1,7 @@
-package com.asknehru.demoapp.security;
+package com.asknehru.asknehrubackend.security;
 
-import com.asknehru.demoapp.users.UserAccount;
-import com.asknehru.demoapp.users.UserRepository;
+import com.asknehru.asknehrubackend.users.UserAccount;
+import com.asknehru.asknehrubackend.users.UserRepository;
 import java.io.IOException;
 import java.util.List;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

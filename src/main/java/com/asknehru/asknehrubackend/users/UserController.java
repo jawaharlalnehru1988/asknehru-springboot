@@ -1,4 +1,4 @@
-package com.asknehru.demoapp.users;
+package com.asknehru.asknehrubackend.users;
 
 import jakarta.validation.Valid;
 import java.util.List;

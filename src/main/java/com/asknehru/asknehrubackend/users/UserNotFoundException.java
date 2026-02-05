@@ -1,4 +1,4 @@
-package com.asknehru.demoapp.users;
+package com.asknehru.asknehrubackend.users;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;

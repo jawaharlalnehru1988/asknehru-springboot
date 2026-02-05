@@ -1,7 +1,7 @@
-package com.asknehru.demoapp.security;
+package com.asknehru.asknehrubackend.security;
 
-import com.asknehru.demoapp.users.UserAccount;
-import com.asknehru.demoapp.users.UserRepository;
+import com.asknehru.asknehrubackend.users.UserAccount;
+import com.asknehru.asknehrubackend.users.UserRepository;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
