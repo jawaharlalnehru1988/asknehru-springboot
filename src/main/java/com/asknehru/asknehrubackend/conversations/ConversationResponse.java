@@ -8,6 +8,7 @@ public class ConversationResponse {
     private String question;
     private String answer;
     private String criticalConversation;
+    private String audio;
     private Instant createdAt;
     private Instant updatedAt;
 
@@ -16,6 +17,7 @@ public class ConversationResponse {
                                 String question,
                                 String answer,
                                 String criticalConversation,
+                                String audio,
                                 Instant createdAt,
                                 Instant updatedAt) {
         this.id = id;
@@ -23,6 +25,7 @@ public class ConversationResponse {
         this.question = question;
         this.answer = answer;
         this.criticalConversation = criticalConversation;
+        this.audio = audio;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -45,6 +48,10 @@ public class ConversationResponse {
 
     public String getCriticalConversation() {
         return criticalConversation;
+    }
+
+    public String getAudio() {
+        return audio;
     }
 
     public Instant getCreatedAt() {

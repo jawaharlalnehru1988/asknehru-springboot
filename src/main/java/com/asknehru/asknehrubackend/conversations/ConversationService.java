@@ -3,22 +3,32 @@ package com.asknehru.asknehrubackend.conversations;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class ConversationService {
     private final ConversationRepository conversationRepository;
+    private final FileStorageService fileStorageService;
 
-    public ConversationService(ConversationRepository conversationRepository) {
+    public ConversationService(ConversationRepository conversationRepository,
+                               FileStorageService fileStorageService) {
         this.conversationRepository = conversationRepository;
+        this.fileStorageService = fileStorageService;
     }
 
     @Transactional
-    public Conversation create(ConversationCreateRequest request) {
+    public Conversation create(ConversationCreateRequest request, MultipartFile audioFile) {
         Conversation conversation = new Conversation();
         conversation.setTopicCategory(request.getTopicCategory().trim());
         conversation.setQuestion(request.getQuestion().trim());
         conversation.setAnswer(request.getAnswer().trim());
         conversation.setCriticalConversation(request.getCriticalConversation());
+        
+        if (audioFile != null && !audioFile.isEmpty()) {
+            String filename = fileStorageService.storeFile(audioFile);
+            conversation.setAudio(filename);
+        }
+        
         return conversationRepository.save(conversation);
     }
 
@@ -34,7 +44,7 @@ public class ConversationService {
     }
 
     @Transactional
-    public Conversation update(Long id, ConversationUpdateRequest request) {
+    public Conversation update(Long id, ConversationUpdateRequest request, MultipartFile audioFile) {
         Conversation conversation = get(id);
 
         if (request.getTopicCategory() != null && !request.getTopicCategory().isBlank()) {
@@ -49,15 +59,28 @@ public class ConversationService {
         if (request.getCriticalConversation() != null) {
             conversation.setCriticalConversation(request.getCriticalConversation().trim());
         }
+        
+        if (audioFile != null && !audioFile.isEmpty()) {
+            // Delete old audio file if exists
+            if (conversation.getAudio() != null) {
+                fileStorageService.deleteFile(conversation.getAudio());
+            }
+            String filename = fileStorageService.storeFile(audioFile);
+            conversation.setAudio(filename);
+        }
 
         return conversationRepository.save(conversation);
     }
 
     @Transactional
     public void delete(Long id) {
-        if (!conversationRepository.existsById(id)) {
-            throw new ConversationNotFoundException("Conversation not found.");
+        Conversation conversation = get(id);
+        
+        // Delete audio file if exists
+        if (conversation.getAudio() != null) {
+            fileStorageService.deleteFile(conversation.getAudio());
         }
+        
         conversationRepository.deleteById(id);
     }
 }

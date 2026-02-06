@@ -29,6 +29,9 @@ public class Conversation {
     @Column(columnDefinition = "text")
     private String criticalConversation;
 
+    @Column(length = 500)
+    private String audio;
+
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
 
@@ -81,6 +84,14 @@ public class Conversation {
 
     public void setCriticalConversation(String criticalConversation) {
         this.criticalConversation = criticalConversation;
+    }
+
+    public String getAudio() {
+        return audio;
+    }
+
+    public void setAudio(String audio) {
+        this.audio = audio;
     }
 
     public Instant getCreatedAt() {
