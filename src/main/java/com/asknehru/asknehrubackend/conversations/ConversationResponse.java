@@ -4,28 +4,34 @@ import java.time.Instant;
 
 public class ConversationResponse {
     private Long id;
-    private String topicCategory;
-    private String question;
-    private String answer;
-    private String criticalConversation;
-    private String audio;
+    private MainTopic mainTopic;
+    private String subTopic;
+    private String article;
+    private String positiveConversation;
+    private String negativeConversation;
+    private String articleAudio;
+    private String conversationAudio;
     private Instant createdAt;
     private Instant updatedAt;
 
     public ConversationResponse(Long id,
-                                String topicCategory,
-                                String question,
-                                String answer,
-                                String criticalConversation,
-                                String audio,
+                                MainTopic mainTopic,
+                                String subTopic,
+                                String article,
+                                String positiveConversation,
+                                String negativeConversation,
+                                String articleAudio,
+                                String conversationAudio,
                                 Instant createdAt,
                                 Instant updatedAt) {
         this.id = id;
-        this.topicCategory = topicCategory;
-        this.question = question;
-        this.answer = answer;
-        this.criticalConversation = criticalConversation;
-        this.audio = audio;
+        this.mainTopic = mainTopic;
+        this.subTopic = subTopic;
+        this.article = article;
+        this.positiveConversation = positiveConversation;
+        this.negativeConversation = negativeConversation;
+        this.articleAudio = articleAudio;
+        this.conversationAudio = conversationAudio;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -34,24 +40,32 @@ public class ConversationResponse {
         return id;
     }
 
-    public String getTopicCategory() {
-        return topicCategory;
+    public MainTopic getMainTopic() {
+        return mainTopic;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getSubTopic() {
+        return subTopic;
     }
 
-    public String getAnswer() {
-        return answer;
+    public String getArticle() {
+        return article;
     }
 
-    public String getCriticalConversation() {
-        return criticalConversation;
+    public String getPositiveConversation() {
+        return positiveConversation;
     }
 
-    public String getAudio() {
-        return audio;
+    public String getNegativeConversation() {
+        return negativeConversation;
+    }
+
+    public String getArticleAudio() {
+        return articleAudio;
+    }
+
+    public String getConversationAudio() {
+        return conversationAudio;
     }
 
     public Instant getCreatedAt() {

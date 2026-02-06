@@ -17,16 +17,24 @@ public class ConversationService {
     }
 
     @Transactional
-    public Conversation create(ConversationCreateRequest request, MultipartFile audioFile) {
+    public Conversation create(ConversationCreateRequest request, 
+                              MultipartFile articleAudioFile,
+                              MultipartFile conversationAudioFile) {
         Conversation conversation = new Conversation();
-        conversation.setTopicCategory(request.getTopicCategory().trim());
-        conversation.setQuestion(request.getQuestion().trim());
-        conversation.setAnswer(request.getAnswer().trim());
-        conversation.setCriticalConversation(request.getCriticalConversation());
+        conversation.setMainTopic(request.getMainTopic());
+        conversation.setSubTopic(request.getSubTopic().trim());
+        conversation.setArticle(request.getArticle().trim());
+        conversation.setPositiveConversation(request.getPositiveConversation());
+        conversation.setNegativeConversation(request.getNegativeConversation());
         
-        if (audioFile != null && !audioFile.isEmpty()) {
-            String filename = fileStorageService.storeFile(audioFile);
-            conversation.setAudio(filename);
+        if (articleAudioFile != null && !articleAudioFile.isEmpty()) {
+            String filename = fileStorageService.storeFile(articleAudioFile);
+            conversation.setArticleAudio(filename);
+        }
+        
+        if (conversationAudioFile != null && !conversationAudioFile.isEmpty()) {
+            String filename = fileStorageService.storeFile(conversationAudioFile);
+            conversation.setConversationAudio(filename);
         }
         
         return conversationRepository.save(conversation);
@@ -44,29 +52,43 @@ public class ConversationService {
     }
 
     @Transactional
-    public Conversation update(Long id, ConversationUpdateRequest request, MultipartFile audioFile) {
+    public Conversation update(Long id, ConversationUpdateRequest request, 
+                              MultipartFile articleAudioFile,
+                              MultipartFile conversationAudioFile) {
         Conversation conversation = get(id);
 
-        if (request.getTopicCategory() != null && !request.getTopicCategory().isBlank()) {
-            conversation.setTopicCategory(request.getTopicCategory().trim());
+        if (request.getMainTopic() != null) {
+            conversation.setMainTopic(request.getMainTopic());
         }
-        if (request.getQuestion() != null && !request.getQuestion().isBlank()) {
-            conversation.setQuestion(request.getQuestion().trim());
+        if (request.getSubTopic() != null && !request.getSubTopic().isBlank()) {
+            conversation.setSubTopic(request.getSubTopic().trim());
         }
-        if (request.getAnswer() != null && !request.getAnswer().isBlank()) {
-            conversation.setAnswer(request.getAnswer().trim());
+        if (request.getArticle() != null && !request.getArticle().isBlank()) {
+            conversation.setArticle(request.getArticle().trim());
         }
-        if (request.getCriticalConversation() != null) {
-            conversation.setCriticalConversation(request.getCriticalConversation().trim());
+        if (request.getPositiveConversation() != null) {
+            conversation.setPositiveConversation(request.getPositiveConversation().trim());
+        }
+        if (request.getNegativeConversation() != null) {
+            conversation.setNegativeConversation(request.getNegativeConversation().trim());
         }
         
-        if (audioFile != null && !audioFile.isEmpty()) {
+        if (articleAudioFile != null && !articleAudioFile.isEmpty()) {
             // Delete old audio file if exists
-            if (conversation.getAudio() != null) {
-                fileStorageService.deleteFile(conversation.getAudio());
+            if (conversation.getArticleAudio() != null) {
+                fileStorageService.deleteFile(conversation.getArticleAudio());
             }
-            String filename = fileStorageService.storeFile(audioFile);
-            conversation.setAudio(filename);
+            String filename = fileStorageService.storeFile(articleAudioFile);
+            conversation.setArticleAudio(filename);
+        }
+        
+        if (conversationAudioFile != null && !conversationAudioFile.isEmpty()) {
+            // Delete old audio file if exists
+            if (conversation.getConversationAudio() != null) {
+                fileStorageService.deleteFile(conversation.getConversationAudio());
+            }
+            String filename = fileStorageService.storeFile(conversationAudioFile);
+            conversation.setConversationAudio(filename);
         }
 
         return conversationRepository.save(conversation);
@@ -76,9 +98,12 @@ public class ConversationService {
     public void delete(Long id) {
         Conversation conversation = get(id);
         
-        // Delete audio file if exists
-        if (conversation.getAudio() != null) {
-            fileStorageService.deleteFile(conversation.getAudio());
+        // Delete audio files if they exist
+        if (conversation.getArticleAudio() != null) {
+            fileStorageService.deleteFile(conversation.getArticleAudio());
+        }
+        if (conversation.getConversationAudio() != null) {
+            fileStorageService.deleteFile(conversation.getConversationAudio());
         }
         
         conversationRepository.deleteById(id);

@@ -4,7 +4,9 @@ import jakarta.validation.Valid;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
@@ -33,11 +35,19 @@ public class ConversationController {
         this.fileStorageService = fileStorageService;
     }
 
+    @GetMapping("/main-topics")
+    public List<MainTopicResponse> getMainTopics() {
+        return Arrays.stream(MainTopic.values())
+            .map(topic -> new MainTopicResponse(topic.name(), topic.getDisplayName()))
+            .collect(Collectors.toList());
+    }
+
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<ConversationResponse> create(
             @Valid @RequestPart("data") ConversationCreateRequest request,
-            @RequestPart(value = "audio", required = false) MultipartFile audioFile) {
-        Conversation conversation = conversationService.create(request, audioFile);
+            @RequestPart(value = "articleAudio", required = false) MultipartFile articleAudioFile,
+            @RequestPart(value = "conversationAudio", required = false) MultipartFile conversationAudioFile) {
+        Conversation conversation = conversationService.create(request, articleAudioFile, conversationAudioFile);
         return ResponseEntity.status(HttpStatus.CREATED).body(toResponse(conversation));
     }
 
@@ -55,8 +65,9 @@ public class ConversationController {
     public ConversationResponse update(
             @PathVariable Long id,
             @Valid @RequestPart("data") ConversationUpdateRequest request,
-            @RequestPart(value = "audio", required = false) MultipartFile audioFile) {
-        return toResponse(conversationService.update(id, request, audioFile));
+            @RequestPart(value = "articleAudio", required = false) MultipartFile articleAudioFile,
+            @RequestPart(value = "conversationAudio", required = false) MultipartFile conversationAudioFile) {
+        return toResponse(conversationService.update(id, request, articleAudioFile, conversationAudioFile));
     }
 
     @DeleteMapping("/{id}")
@@ -90,17 +101,23 @@ public class ConversationController {
     }
 
     private ConversationResponse toResponse(Conversation conversation) {
-        String audioUrl = conversation.getAudio() != null 
-            ? "/api/conversations/audio/" + conversation.getAudio()
+        String articleAudioUrl = conversation.getArticleAudio() != null 
+            ? "/api/conversations/audio/" + conversation.getArticleAudio()
+            : null;
+        
+        String conversationAudioUrl = conversation.getConversationAudio() != null 
+            ? "/api/conversations/audio/" + conversation.getConversationAudio()
             : null;
             
         return new ConversationResponse(
             conversation.getId(),
-            conversation.getTopicCategory(),
-            conversation.getQuestion(),
-            conversation.getAnswer(),
-            conversation.getCriticalConversation(),
-            audioUrl,
+            conversation.getMainTopic(),
+            conversation.getSubTopic(),
+            conversation.getArticle(),
+            conversation.getPositiveConversation(),
+            conversation.getNegativeConversation(),
+            articleAudioUrl,
+            conversationAudioUrl,
             conversation.getCreatedAt(),
             conversation.getUpdatedAt()
         );

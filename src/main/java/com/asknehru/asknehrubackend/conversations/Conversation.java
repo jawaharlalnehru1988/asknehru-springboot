@@ -2,6 +2,8 @@ package com.asknehru.asknehrubackend.conversations;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -11,26 +13,33 @@ import jakarta.persistence.Table;
 import java.time.Instant;
 
 @Entity
-@Table(name = "conversation_topics")
+@Table(name = "knowledge_base")
 public class Conversation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 120)
-    private String topicCategory;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 50)
+    private MainTopic mainTopic;
+
+    @Column(nullable = false, length = 200)
+    private String subTopic;
 
     @Column(nullable = false, columnDefinition = "text")
-    private String question;
-
-    @Column(nullable = false, columnDefinition = "text")
-    private String answer;
+    private String article;
 
     @Column(columnDefinition = "text")
-    private String criticalConversation;
+    private String positiveConversation;
+
+    @Column(columnDefinition = "text")
+    private String negativeConversation;
 
     @Column(length = 500)
-    private String audio;
+    private String articleAudio;
+
+    @Column(length = 500)
+    private String conversationAudio;
 
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
@@ -54,44 +63,60 @@ public class Conversation {
         return id;
     }
 
-    public String getTopicCategory() {
-        return topicCategory;
+    public MainTopic getMainTopic() {
+        return mainTopic;
     }
 
-    public void setTopicCategory(String topicCategory) {
-        this.topicCategory = topicCategory;
+    public void setMainTopic(MainTopic mainTopic) {
+        this.mainTopic = mainTopic;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getSubTopic() {
+        return subTopic;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setSubTopic(String subTopic) {
+        this.subTopic = subTopic;
     }
 
-    public String getAnswer() {
-        return answer;
+    public String getArticle() {
+        return article;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setArticle(String article) {
+        this.article = article;
     }
 
-    public String getCriticalConversation() {
-        return criticalConversation;
+    public String getPositiveConversation() {
+        return positiveConversation;
     }
 
-    public void setCriticalConversation(String criticalConversation) {
-        this.criticalConversation = criticalConversation;
+    public void setPositiveConversation(String positiveConversation) {
+        this.positiveConversation = positiveConversation;
     }
 
-    public String getAudio() {
-        return audio;
+    public String getNegativeConversation() {
+        return negativeConversation;
     }
 
-    public void setAudio(String audio) {
-        this.audio = audio;
+    public void setNegativeConversation(String negativeConversation) {
+        this.negativeConversation = negativeConversation;
+    }
+
+    public String getArticleAudio() {
+        return articleAudio;
+    }
+
+    public void setArticleAudio(String articleAudio) {
+        this.articleAudio = articleAudio;
+    }
+
+    public String getConversationAudio() {
+        return conversationAudio;
+    }
+
+    public void setConversationAudio(String conversationAudio) {
+        this.conversationAudio = conversationAudio;
     }
 
     public Instant getCreatedAt() {

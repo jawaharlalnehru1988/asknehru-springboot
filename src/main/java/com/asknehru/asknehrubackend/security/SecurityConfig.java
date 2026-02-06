@@ -37,6 +37,8 @@ public class SecurityConfig {
                 .requestMatchers("/actuator/health").permitAll()
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
+                // Allow public GET access to conversations
+                .requestMatchers(HttpMethod.GET, "/api/conversations/**").permitAll()
                 .anyRequest().authenticated()
             );
 
@@ -53,7 +55,7 @@ public class SecurityConfig {
             "https://admin.asknehru.com"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+        config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

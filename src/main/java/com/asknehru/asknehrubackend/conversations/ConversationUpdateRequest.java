@@ -3,44 +3,54 @@ package com.asknehru.asknehrubackend.conversations;
 import jakarta.validation.constraints.Size;
 
 public class ConversationUpdateRequest {
-    @Size(max = 120)
-    private String topicCategory;
+    private MainTopic mainTopic;
 
-    private String question;
+    @Size(max = 200)
+    private String subTopic;
 
-    private String answer;
+    private String article;
 
-    private String criticalConversation;
+    private String positiveConversation;
+    
+    private String negativeConversation;
 
-    public String getTopicCategory() {
-        return topicCategory;
+    public MainTopic getMainTopic() {
+        return mainTopic;
     }
 
-    public void setTopicCategory(String topicCategory) {
-        this.topicCategory = topicCategory;
+    public void setMainTopic(MainTopic mainTopic) {
+        this.mainTopic = mainTopic;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getSubTopic() {
+        return subTopic;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setSubTopic(String subTopic) {
+        this.subTopic = subTopic;
     }
 
-    public String getAnswer() {
-        return answer;
+    public String getArticle() {
+        return article;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setArticle(String article) {
+        this.article = article;
     }
 
-    public String getCriticalConversation() {
-        return criticalConversation;
+    public String getPositiveConversation() {
+        return positiveConversation;
     }
 
-    public void setCriticalConversation(String criticalConversation) {
-        this.criticalConversation = criticalConversation;
+    public void setPositiveConversation(String positiveConversation) {
+        this.positiveConversation = positiveConversation;
+    }
+
+    public String getNegativeConversation() {
+        return negativeConversation;
+    }
+
+    public void setNegativeConversation(String negativeConversation) {
+        this.negativeConversation = negativeConversation;
     }
 }
