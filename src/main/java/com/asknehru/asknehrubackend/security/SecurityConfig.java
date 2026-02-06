@@ -37,8 +37,9 @@ public class SecurityConfig {
                 .requestMatchers("/actuator/health").permitAll()
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
-                // Allow public GET access to conversations
+                // Allow public GET access to conversations and roadmaps
                 .requestMatchers(HttpMethod.GET, "/api/conversations/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/roadmaps/**").permitAll()
                 .anyRequest().authenticated()
             );
 
