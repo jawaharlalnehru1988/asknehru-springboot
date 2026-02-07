@@ -53,7 +53,8 @@ public class SecurityConfig {
         config.setAllowedOrigins(List.of(
             "https://asknehru.com", 
             "https://www.asknehru.com",
-            "https://admin.asknehru.com"
+            "https://admin.asknehru.com",
+            "http://192.168.0.102:3000"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
