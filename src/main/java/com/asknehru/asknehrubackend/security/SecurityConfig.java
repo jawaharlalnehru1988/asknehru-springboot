@@ -54,7 +54,8 @@ public class SecurityConfig {
             "https://asknehru.com", 
             "https://www.asknehru.com",
             "https://admin.asknehru.com",
-            "http://192.168.0.102:3000"
+            "http://192.168.0.102:3000",
+            "http://localhost:4201"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
