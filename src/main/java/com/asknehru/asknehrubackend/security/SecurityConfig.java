@@ -34,12 +34,14 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/actuator/health").permitAll()
+                .requestMatchers("/actuator/**").permitAll()
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
                 // Allow public GET access to conversations and roadmaps
                 .requestMatchers(HttpMethod.GET, "/api/conversations/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/roadmaps/**").permitAll()
+                // Allow public access to yoga poses API
+                .requestMatchers("/api/yoga/**").permitAll()
                 .anyRequest().authenticated()
             );
 
