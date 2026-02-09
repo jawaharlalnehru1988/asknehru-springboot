@@ -42,6 +42,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/api/roadmaps/**").permitAll()
                 // Allow public access to yoga poses API
                 .requestMatchers("/api/yoga/**").permitAll()
+                // Allow public access to file upload API
+                .requestMatchers("/api/upload/**").permitAll()
                 .anyRequest().authenticated()
             );
 
