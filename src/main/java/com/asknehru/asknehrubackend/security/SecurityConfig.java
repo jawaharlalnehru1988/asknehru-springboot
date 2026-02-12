@@ -44,6 +44,8 @@ public class SecurityConfig {
                 .requestMatchers("/api/yoga/**").permitAll()
                 // Allow public access to file upload API
                 .requestMatchers("/api/upload/**").permitAll()
+                // Allow public access to medicines API
+                .requestMatchers("/api/medicines/**").permitAll()
                 .anyRequest().authenticated()
             );
 
@@ -58,6 +60,7 @@ public class SecurityConfig {
             "https://asknehru.com", 
             "https://www.asknehru.com",
             "https://admin.asknehru.com",
+            "https://medicine.asknehru.com",
             "http://192.168.0.102:3000",
             "http://localhost:4201"
         ));
