@@ -3,7 +3,8 @@ package com.asknehru.asknehrubackend.conversations;
 import jakarta.validation.constraints.Size;
 
 public class ConversationUpdateRequest {
-    private MainTopic mainTopic;
+    @Size(max = 100)
+    private String mainTopic;
 
     @Size(max = 200)
     private String subTopic;
@@ -14,11 +15,11 @@ public class ConversationUpdateRequest {
     
     private String negativeConversation;
 
-    public MainTopic getMainTopic() {
+    public String getMainTopic() {
         return mainTopic;
     }
 
-    public void setMainTopic(MainTopic mainTopic) {
+    public void setMainTopic(String mainTopic) {
         this.mainTopic = mainTopic;
     }
 

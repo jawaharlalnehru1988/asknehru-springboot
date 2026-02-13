@@ -5,8 +5,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class ConversationCreateRequest {
-    @NotNull
-    private MainTopic mainTopic;
+    @NotBlank
+    @Size(max = 100)
+    private String mainTopic;
 
     @NotBlank
     @Size(max = 200)
@@ -19,11 +20,11 @@ public class ConversationCreateRequest {
     
     private String negativeConversation;
 
-    public MainTopic getMainTopic() {
+    public String getMainTopic() {
         return mainTopic;
     }
 
-    public void setMainTopic(MainTopic mainTopic) {
+    public void setMainTopic(String mainTopic) {
         this.mainTopic = mainTopic;
     }
 

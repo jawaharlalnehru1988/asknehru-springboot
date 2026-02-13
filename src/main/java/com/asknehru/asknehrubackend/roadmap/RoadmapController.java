@@ -20,7 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/roadmaps")
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"https://asknehru.com", "https://www.asknehru.com", "https://admin.asknehru.com"})
+@CrossOrigin(origins = "*")
 public class RoadmapController {
     private final RoadmapService roadmapService;
     private final FileStorageService fileStorageService;

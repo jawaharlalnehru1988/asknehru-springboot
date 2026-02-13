@@ -34,22 +34,10 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/actuator/**").permitAll()
-                .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
-                // Allow public GET access to conversations and roadmaps
-                .requestMatchers(HttpMethod.GET, "/api/conversations/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "/api/roadmaps/**").permitAll()
-                // Allow public access to yoga poses API
-                .requestMatchers("/api/yoga/**").permitAll()
-                // Allow public access to file upload API
-                .requestMatchers("/api/upload/**").permitAll()
-                // Allow public access to medicines API
-                .requestMatchers("/api/medicines/**").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
             );
 
-        http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+        // Removed JWT filter - all endpoints are now public
         return http.build();
     }
 

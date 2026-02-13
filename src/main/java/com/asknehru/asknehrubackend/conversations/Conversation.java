@@ -2,8 +2,6 @@ package com.asknehru.asknehrubackend.conversations;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,9 +17,8 @@ public class Conversation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 50)
-    private MainTopic mainTopic;
+    @Column(nullable = false, length = 100)
+    private String mainTopic;
 
     @Column(nullable = false, length = 200)
     private String subTopic;
@@ -63,11 +60,11 @@ public class Conversation {
         return id;
     }
 
-    public MainTopic getMainTopic() {
+    public String getMainTopic() {
         return mainTopic;
     }
 
-    public void setMainTopic(MainTopic mainTopic) {
+    public void setMainTopic(String mainTopic) {
         this.mainTopic = mainTopic;
     }
 

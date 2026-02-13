@@ -4,7 +4,7 @@ import java.time.Instant;
 
 public class ConversationResponse {
     private Long id;
-    private MainTopic mainTopic;
+    private String mainTopic;
     private String subTopic;
     private String article;
     private String positiveConversation;
@@ -15,7 +15,7 @@ public class ConversationResponse {
     private Instant updatedAt;
 
     public ConversationResponse(Long id,
-                                MainTopic mainTopic,
+                                String mainTopic,
                                 String subTopic,
                                 String article,
                                 String positiveConversation,
@@ -40,7 +40,7 @@ public class ConversationResponse {
         return id;
     }
 
-    public MainTopic getMainTopic() {
+    public String getMainTopic() {
         return mainTopic;
     }
 
