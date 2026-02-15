@@ -19,9 +19,8 @@ public class Medicine {
     @Column(length = 200)
     private String brand;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 50)
-    private MedicineCategory category;
+    @Column(nullable = false, length = 100)
+    private String category;
 
     @Column(nullable = false)
     private Integer quantity;
@@ -103,11 +102,11 @@ public class Medicine {
         this.brand = brand;
     }
 
-    public MedicineCategory getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(MedicineCategory category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 

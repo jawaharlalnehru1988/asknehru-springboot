@@ -9,7 +9,7 @@ public class MedicineResponse {
     private Long id;
     private String name;
     private String brand;
-    private MedicineCategory category;
+    private String category;
     private Integer quantity;
     private String unit;
     private LocalDate expiryDate;
@@ -23,7 +23,7 @@ public class MedicineResponse {
     private Instant createdAt;
     private Instant lastUpdated;
 
-    public MedicineResponse(Long id, String name, String brand, MedicineCategory category, 
+    public MedicineResponse(Long id, String name, String brand, String category, 
                           Integer quantity, String unit, LocalDate expiryDate, 
                           LocalDate manufactureDate, String description, String dosageInstructions,
                           List<String> ingredients, List<String> sideEffects, List<String> benefits,
@@ -60,7 +60,7 @@ public class MedicineResponse {
         return brand;
     }
 
-    public MedicineCategory getCategory() {
+    public String getCategory() {
         return category;
     }
 

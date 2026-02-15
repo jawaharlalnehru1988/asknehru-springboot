@@ -15,6 +15,10 @@ public class RoadmapService {
     private final RoadmapRepository roadmapRepository;
     private final FileStorageService fileStorageService;
 
+    public List<String> getAllMainTopics() {
+        return roadmapRepository.findAllMainTopics();
+    }
+
     public List<RoadmapResponse> getAllRoadmaps() {
         return roadmapRepository.findAllByOrderByCreatedAtDesc().stream()
                 .map(this::toResponse)

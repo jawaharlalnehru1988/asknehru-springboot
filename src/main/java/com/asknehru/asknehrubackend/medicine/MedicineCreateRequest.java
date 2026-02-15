@@ -15,8 +15,8 @@ public class MedicineCreateRequest {
     
     private String brand;
     
-    @NotNull(message = "Category is required")
-    private MedicineCategory category;
+    @NotBlank(message = "Category is required")
+    private String category;
     
     @NotNull(message = "Quantity is required")
     @Positive(message = "Quantity must be positive")
@@ -59,11 +59,11 @@ public class MedicineCreateRequest {
         this.brand = brand;
     }
 
-    public MedicineCategory getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(MedicineCategory category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 

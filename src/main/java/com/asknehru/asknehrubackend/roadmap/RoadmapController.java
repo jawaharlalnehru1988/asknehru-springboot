@@ -30,7 +30,12 @@ public class RoadmapController {
         return ResponseEntity.ok(roadmapService.getAllRoadmaps());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/main-topics")
+    public ResponseEntity<List<String>> getAllMainTopics() {
+        return ResponseEntity.ok(roadmapService.getAllMainTopics());
+    }
+
+    @GetMapping("/{id:\\d+}")
     public ResponseEntity<RoadmapResponse> getRoadmapById(@PathVariable Long id) {
         return ResponseEntity.ok(roadmapService.getRoadmapById(id));
     }
@@ -43,7 +48,7 @@ public class RoadmapController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @PutMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PutMapping(value = "/{id:\\d+}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<RoadmapResponse> updateRoadmap(
             @PathVariable Long id,
             @Valid @RequestPart("data") RoadmapUpdateRequest request,
@@ -52,7 +57,7 @@ public class RoadmapController {
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id:\\d+}")
     public ResponseEntity<Void> deleteRoadmap(@PathVariable Long id) {
         roadmapService.deleteRoadmap(id);
         return ResponseEntity.noContent().build();

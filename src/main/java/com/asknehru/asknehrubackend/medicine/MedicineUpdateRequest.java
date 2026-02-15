@@ -7,7 +7,7 @@ public class MedicineUpdateRequest {
     
     private String name;
     private String brand;
-    private MedicineCategory category;
+    private String category;
     private Integer quantity;
     private String unit;
     private LocalDate expiryDate;
@@ -37,11 +37,11 @@ public class MedicineUpdateRequest {
         this.brand = brand;
     }
 
-    public MedicineCategory getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(MedicineCategory category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
