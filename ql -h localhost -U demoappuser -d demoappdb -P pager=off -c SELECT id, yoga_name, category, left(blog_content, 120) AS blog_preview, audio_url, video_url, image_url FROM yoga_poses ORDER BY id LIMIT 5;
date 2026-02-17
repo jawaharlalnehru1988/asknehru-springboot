@@ -1,0 +1,9 @@
+ id | yoga_name |  category  |                          blog_preview                          | audio_url | video_url |            image_url             
+----+-----------+------------+----------------------------------------------------------------+-----------+-----------+----------------------------------
+  1 | Tadasana  | Hatha Yoga | A foundational standing pose that improves posture and balance+|           |           | https://example.com/tadasana.jpg
+    |           |            |                                                               +|           |           | 
+    |           |            | Quick Benefit: Improves posture and balance                   +|           |           | 
+    |           |            |                                                               +|           |           | 
+    |           |            | Duration: 3                                                    |           |           | 
+(1 row)
+

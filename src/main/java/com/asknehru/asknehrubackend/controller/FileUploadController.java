@@ -26,57 +26,80 @@ public class FileUploadController {
     @Value("${file.upload-dir}")
     private String uploadDir;
 
+    @Value("${file.audio-upload-dir:/var/www/spring-apps/asknehrubackend/media/yoga-audio}")
+    private String audioUploadDir;
+
     @Value("${file.base-url}")
     private String baseUrl;
 
     @PostMapping("/image")
     public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile file) {
         try {
-            // Validate file
             if (file.isEmpty()) {
                 return ResponseEntity.badRequest().body(Map.of("error", "Please select a file to upload"));
             }
 
-            // Check file type
             String contentType = file.getContentType();
             if (contentType == null || !contentType.startsWith("image/")) {
                 return ResponseEntity.badRequest().body(Map.of("error", "Only image files are allowed"));
             }
 
-            // Check file size (max 5MB)
             if (file.getSize() > 5 * 1024 * 1024) {
                 return ResponseEntity.badRequest().body(Map.of("error", "File size must be less than 5MB"));
             }
 
-            // Create upload directory if it doesn't exist
-            Path uploadPath = Paths.get(uploadDir);
-            if (!Files.exists(uploadPath)) {
-                Files.createDirectories(uploadPath);
-            }
-
-            // Generate unique filename
-            String originalFilename = file.getOriginalFilename();
-            String extension = "";
-            if (originalFilename != null && originalFilename.contains(".")) {
-                extension = originalFilename.substring(originalFilename.lastIndexOf("."));
-            }
-            String filename = UUID.randomUUID().toString() + extension;
-
-            // Save file
-            Path filePath = uploadPath.resolve(filename);
-            Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
-
-            // Return file URL
-            String fileUrl = baseUrl + "/media/yoga-poses/" + filename;
-            Map<String, String> response = new HashMap<>();
-            response.put("url", fileUrl);
-            response.put("filename", filename);
-
-            return ResponseEntity.ok(response);
+            return ResponseEntity.ok(saveFile(file, uploadDir, "/media/yoga-poses/"));
 
         } catch (IOException e) {
             return ResponseEntity.internalServerError()
                 .body(Map.of("error", "Failed to upload file: " + e.getMessage()));
         }
+    }
+
+    @PostMapping("/audio")
+    public ResponseEntity<?> uploadAudio(@RequestParam("file") MultipartFile file) {
+        try {
+            if (file.isEmpty()) {
+                return ResponseEntity.badRequest().body(Map.of("error", "Please select a file to upload"));
+            }
+
+            String contentType = file.getContentType();
+            if (contentType == null || !contentType.startsWith("audio/")) {
+                return ResponseEntity.badRequest().body(Map.of("error", "Only audio files are allowed"));
+            }
+
+            if (file.getSize() > 50 * 1024 * 1024) {
+                return ResponseEntity.badRequest().body(Map.of("error", "Audio size must be less than 50MB"));
+            }
+
+            return ResponseEntity.ok(saveFile(file, audioUploadDir, "/media/yoga-audio/"));
+
+        } catch (IOException e) {
+            return ResponseEntity.internalServerError()
+                .body(Map.of("error", "Failed to upload file: " + e.getMessage()));
+        }
+    }
+
+    private Map<String, String> saveFile(MultipartFile file, String targetDir, String publicPathPrefix) throws IOException {
+        Path uploadPath = Paths.get(targetDir);
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+
+        String originalFilename = file.getOriginalFilename();
+        String extension = "";
+        if (originalFilename != null && originalFilename.contains(".")) {
+            extension = originalFilename.substring(originalFilename.lastIndexOf("."));
+        }
+        String filename = UUID.randomUUID() + extension;
+
+        Path filePath = uploadPath.resolve(filename);
+        Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+
+        String fileUrl = baseUrl + publicPathPrefix + filename;
+        Map<String, String> response = new HashMap<>();
+        response.put("url", fileUrl);
+        response.put("filename", filename);
+        return response;
     }
 }

@@ -26,34 +26,9 @@ public class YogaPoseController {
         return ResponseEntity.ok(yogaPoseService.getPoseById(id));
     }
     
-    @GetMapping("/pose-id/{poseId}")
-    public ResponseEntity<YogaPose> getPoseByPoseId(@PathVariable String poseId) {
-        return ResponseEntity.ok(yogaPoseService.getPoseByPoseId(poseId));
-    }
-    
-    @GetMapping("/difficulty/{difficulty}")
-    public ResponseEntity<List<YogaPose>> getPosesByDifficulty(@PathVariable String difficulty) {
-        return ResponseEntity.ok(yogaPoseService.getPosesByDifficulty(difficulty));
-    }
-    
-    @GetMapping("/category/{category}")
-    public ResponseEntity<List<YogaPose>> getPosesByCategory(@PathVariable String category) {
-        return ResponseEntity.ok(yogaPoseService.getPosesByCategory(category));
-    }
-    
-    @GetMapping("/tag/{tag}")
-    public ResponseEntity<List<YogaPose>> getPosesByTag(@PathVariable String tag) {
-        return ResponseEntity.ok(yogaPoseService.getPosesByTag(tag));
-    }
-    
     @GetMapping("/search")
-    public ResponseEntity<List<YogaPose>> searchPoses(@RequestParam String name) {
-        return ResponseEntity.ok(yogaPoseService.searchPosesByName(name));
-    }
-    
-    @GetMapping("/popular")
-    public ResponseEntity<List<YogaPose>> getPopularPoses() {
-        return ResponseEntity.ok(yogaPoseService.getPopularPoses());
+    public ResponseEntity<List<YogaPose>> searchPoses(@RequestParam String yogaName) {
+        return ResponseEntity.ok(yogaPoseService.searchPosesByYogaName(yogaName));
     }
     
     @PostMapping
