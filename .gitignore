@@ -32,5 +32,18 @@ build/
 ### VS Code ###
 .vscode/
 
+### Python Virtual Environment ###
+.venv/
+
+### Local Django Migration Files ###
+DJANGO_MIGRATION.md
+api/
+asknehru_django/
+manage.py
+requirements-django.txt
+
+### Local Scratch Files ###
+ql*
+
 ### Media Files ###
 media/
