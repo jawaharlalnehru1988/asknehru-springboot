@@ -4,7 +4,7 @@ from conversations.models import Conversation
 from medicines.models import Medicine
 from planning.models import Epic, EpicAccess, Task
 from roadmaps.models import Roadmap
-from yoga.models import YogaPose
+from yoga.models import PranayamaArticle, PranayamaSequence, YogaPose, YogaSequence
 
 
 class EpicAccessInline(admin.TabularInline):
@@ -56,6 +56,27 @@ class YogaPoseAdmin(admin.ModelAdmin):
     list_display = ("id", "yoga_name", "category")
     list_filter = ("category",)
     search_fields = ("yoga_name",)
+
+
+@admin.register(YogaSequence)
+class YogaSequenceAdmin(admin.ModelAdmin):
+    list_display = ("id", "sequence_name", "category")
+    list_filter = ("category",)
+    search_fields = ("sequence_name",)
+
+
+@admin.register(PranayamaSequence)
+class PranayamaSequenceAdmin(admin.ModelAdmin):
+    list_display = ("id", "name", "duration", "category")
+    list_filter = ("category",)
+    search_fields = ("name", "description", "benefits")
+
+
+@admin.register(PranayamaArticle)
+class PranayamaArticleAdmin(admin.ModelAdmin):
+    list_display = ("id", "title", "pranayama_sequence", "category")
+    list_filter = ("category",)
+    search_fields = ("title", "content")
 
 
 @admin.register(EpicAccess)

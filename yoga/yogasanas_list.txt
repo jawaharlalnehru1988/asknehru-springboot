@@ -1,0 +1,191 @@
+YOGA ASANAS MASTER LIST
+=======================
+Status: [DONE] = already in DB | [TODO] = to be added | [ADDED] = script has run
+
+--- ALREADY IN DATABASE ---
+[DONE]  1. Tadasana (Mountain Pose)
+[DONE]  2. Shavasana (Corpse Pose)
+[DONE]  3. Adho Mukha Svanasana (Downward-Facing Dog)
+[DONE]  4. Vrikshasana (Tree Pose)
+[DONE]  5. Paschimottanasana (Seated Forward Bend)
+[DONE]  6. Bhujangasana (Cobra Pose)
+[DONE]  7. Trikonasana (Triangle Pose)
+[DONE]  8. Sarvangasana (Shoulder Stand)
+[DONE]  9. Matsyasana (Fish Pose)
+[DONE] 10. Dhanurasana (Bow Pose)
+[DONE] 11. Balasana (Child's Pose)
+[DONE] 12. Virabhadrasana I (Warrior I)
+
+--- TO BE ADDED (Batch 1 - Foundational & Standing) ---
+[ADDED] 13. Virabhadrasana II (Warrior II)
+[ADDED] 14. Virabhadrasana III (Warrior III)
+[ADDED] 15. Uttanasana (Standing Forward Bend)
+[ADDED] 16. Utkatasana (Chair Pose)
+[ADDED] 17. Ardha Chandrasana (Half Moon Pose)
+[ADDED] 18. Garudasana (Eagle Pose)
+[ADDED] 19. Natarajasana (Dancer's Pose)
+[ADDED] 20. Utthita Parsvakonasana (Extended Side Angle Pose)
+
+--- TO BE ADDED (Batch 2 - Seated & Floor) ---
+[ADDED] 21. Vajrasana (Thunderbolt Pose)
+[ADDED] 22. Sukhasana (Easy Pose)
+[ADDED] 23. Padmasana (Lotus Pose)
+[ADDED] 24. Gomukhasana (Cow Face Pose)
+[ADDED] 25. Baddha Konasana (Butterfly Pose)
+[ADDED] 26. Janu Sirsasana (Head-to-Knee Pose)
+[ADDED] 27. Ardha Matsyendrasana (Seated Spinal Twist)
+[ADDED] 28. Navasana (Boat Pose)
+
+--- TO BE ADDED (Batch 3 - Backbends & Core) ---
+[ADDED] 29. Ustrasana (Camel Pose)
+[ADDED] 30. Setu Bandhasana (Bridge Pose)
+[ADDED] 31. Chakrasana (Wheel Pose)
+[ADDED] 32. Salamba Bhujangasana (Sphinx Pose)
+[ADDED] 33. Marjaryasana-Bitilasana (Cat-Cow Pose)
+[ADDED] 34. Anjaneyasana (Low Lunge)
+
+--- TO BE ADDED (Batch 4 - Restorative & Inversions) ---
+[ADDED] 35. Halasana (Plow Pose)
+[ADDED] 36. Viparita Karani (Legs Up the Wall)
+[ADDED] 37. Supta Baddha Konasana (Reclining Butterfly Pose)
+[ADDED] 38. Uttana Shishosana (Extended Puppy Pose)
+[ADDED] 39. Eka Pada Rajakapotasana (Pigeon Pose)
+[ADDED] 40. Sirsasana (Headstand)
+
+--- TO BE ADDED (Batch 5 - Foundational Standing Extensions) ---
+[ADDED] 41. Parsvottanasana (Pyramid Pose)
+[ADDED] 42. Prasarita Padottanasana (Wide-Legged Forward Fold)
+[ADDED] 43. Parivrtta Trikonasana (Revolved Triangle Pose)
+[ADDED] 44. Parivrtta Parsvakonasana (Revolved Side Angle Pose)
+[ADDED] 45. Utthita Hasta Padangusthasana (Extended Hand-to-Big-Toe Pose)
+[ADDED] 46. Malasana (Garland Pose)
+[ADDED] 47. Skandasana (Side Lunge Pose)
+[ADDED] 48. Parsvakonasana Baddha Variation (Bound Side Angle)
+
+--- TO BE ADDED (Batch 6 - Core and Arm Balance Prep) ---
+[ADDED] 49. Phalakasana (Plank Pose)
+[ADDED] 50. Chaturanga Dandasana (Four-Limbed Staff Pose)
+[ADDED] 51. Vasisthasana (Side Plank Pose)
+[ADDED] 52. Bakasana (Crow Pose)
+[ADDED] 53. Parsva Bakasana (Side Crow Pose)
+[ADDED] 54. Kakasana (Crane Pose Variation)
+[ADDED] 55. Lolasana (Pendant Pose)
+[ADDED] 56. Tolasana (Scale Pose)
+
+--- TO BE ADDED (Batch 7 - Backbends and Shoulder Openers) ---
+[ADDED] 57. Purvottanasana (Upward Plank Pose)
+[ADDED] 58. Urdhva Mukha Svanasana (Upward-Facing Dog)
+[ADDED] 59. Shalabhasana (Locust Pose)
+[ADDED] 60. Ardha Bhekasana (Half Frog Pose)
+[ADDED] 61. Bhekasana (Frog Pose)
+[ADDED] 62. Dwi Pada Viparita Dandasana (Two-Legged Inverted Staff Pose)
+[ADDED] 63. Laghu Vajrasana (Little Thunderbolt Pose)
+[ADDED] 64. Kapotasana (King Pigeon Backbend)
+
+--- TO BE ADDED (Batch 8 - Seated Forward Folds and Twists) ---
+[ADDED] 65. Baddha Padmasana (Bound Lotus Pose)
+[ADDED] 66. Kurmasana (Tortoise Pose)
+[ADDED] 67. Supta Kurmasana (Sleeping Tortoise Pose)
+[ADDED] 68. Upavistha Konasana (Wide-Angle Seated Forward Fold)
+[ADDED] 69. Marichyasana A (Marichi's Pose A)
+[ADDED] 70. Marichyasana C (Marichi's Pose C)
+[ADDED] 71. Bharadvajasana I (Bharadvaja's Twist)
+[ADDED] 72. Parivrtta Janu Sirsasana (Revolved Head-to-Knee Pose)
+
+--- TO BE ADDED (Batch 9 - Inversions and Advanced Balance) ---
+[ADDED] 73. Salamba Sarvangasana (Supported Shoulder Stand)
+[ADDED] 74. Niralamba Sarvangasana (Unsupported Shoulder Stand)
+[ADDED] 75. Pincha Mayurasana (Forearm Stand)
+[ADDED] 76. Adho Mukha Vrksasana (Handstand)
+[ADDED] 77. Karnapidasana (Ear Pressure Pose)
+[ADDED] 78. Pindasana in Sarvangasana (Embryo in Shoulder Stand)
+[ADDED] 79. Yoganidrasana (Yogic Sleep Pose)
+[ADDED] 80. Astavakrasana (Eight-Angle Pose)
+
+TOTAL TARGET: 80 records
+
+
+YOGA SEQUENCES MASTER LIST
+==========================
+Status: [TODO] = to be added | [ADDED] = sequence content created
+
+--- FOUNDATIONAL SEQUENCES ---
+[ADDED] S1. Surya Namaskar A (Sun Salutation A)
+[ADDED] S2. Surya Namaskar B (Sun Salutation B)
+[ADDED] S3. Chandra Namaskar (Moon Salutation)
+[ADDED] S4. Classical Hatha Surya Namaskar (12-Step)
+[ADDED] S5. Slow Morning Joint-Mobility Sequence
+[ADDED] S6. Evening Calm-Down Flow
+
+--- BEGINNER PRACTICE FLOWS ---
+[ADDED] S7. Beginner Flexibility Sequence (20 min)
+[ADDED] S8. Beginner Strength and Balance Sequence (20 min)
+[ADDED] S9. Office-Stiffness Relief Sequence (15 min)
+[ADDED] S10. Lower-Back Friendly Sequence (Gentle)
+[ADDED] S11. Hip-Opening Beginner Sequence
+[ADDED] S12. Breath-and-Posture Sequence
+
+--- INTERMEDIATE PRACTICE FLOWS ---
+[ADDED] S13. Standing Power Flow Sequence
+[ADDED] S14. Twisting Detox Sequence
+[ADDED] S15. Backbend Progression Sequence
+[ADDED] S16. Arm-Balance Prep Sequence
+[ADDED] S17. Core Integration Sequence
+[ADDED] S18. Shoulder and Upper-Back Mobility Flow
+
+--- RESTORATIVE AND THERAPEUTIC FLOWS ---
+[ADDED] S19. Restorative Stress-Relief Sequence
+[ADDED] S20. Better Sleep Night Sequence
+[ADDED] S21. Menstrual Comfort Gentle Sequence
+[ADDED] S22. Anxiety-Calming Breath-Led Sequence
+[ADDED] S23. Recovery Day Full-Body Sequence
+[ADDED] S24. Beginner Pranayama + Asana Sequence
+
+--- ADVANCED TRADITIONAL FLOWS ---
+[ADDED] S25. Ashtanga Primary Opening Sequence
+[ADDED] S26. Traditional Inversion Preparation Sequence
+[ADDED] S27. Intermediate-to-Advanced Vinyasa Peak Sequence
+[ADDED] S28. Full-Body Advanced Mobility Sequence
+[ADDED] S29. 108 Sun Salutations Challenge Plan
+[ADDED] S30. Solstice Special Surya-Chandra Combined Flow
+
+SEQUENCE TARGET: 30 sequence records
+
+
+PRANAYAMA SEQUENCES MASTER LIST
+===============================
+Status: [TODO] = to be added | [ADDED] = sequence content created
+
+--- FOUNDATIONAL TO ADVANCED PRANAYAMA ---
+[ADDED] P1. Foundational Breath Awareness Sequence
+[ADDED] P2. Beginner Diaphragmatic Breathing Flow
+[ADDED] P3. Equal Ratio Breathing (Sama Vritti) Sequence
+[ADDED] P4. Extended Exhalation Calming Sequence
+[ADDED] P5. Ujjayi Preparation Sequence
+[ADDED] P6. Ujjayi with Gentle Retention Sequence
+[ADDED] P7. Nadi Shodhana Level 1 Sequence
+[ADDED] P8. Nadi Shodhana Level 2 Ratio Sequence
+[ADDED] P9. Chandra Bhedana Cooling Sequence
+[ADDED] P10. Surya Bhedana Energizing Sequence
+[ADDED] P11. Bhramari Relaxation Sequence
+[ADDED] P12. Bhramari with Antar Mouna Sequence
+[ADDED] P13. Sheetali Cooling Sequence
+[ADDED] P14. Sheetkari Cooling Sequence
+[ADDED] P15. Sectional Breathing (Dirgha) Sequence
+[ADDED] P16. Anuloma Ujjayi Meditative Sequence
+[ADDED] P17. Viloma Interrupted Inhalation Sequence
+[ADDED] P18. Viloma Interrupted Exhalation Sequence
+[ADDED] P19. Pranava (OM Exhalation) Sequence
+[ADDED] P20. Ajapa Japa Breath Awareness Sequence
+[ADDED] P21. Bhastrika Beginner Sequence
+[ADDED] P22. Bhastrika Intermediate Sequence
+[ADDED] P23. Kapalabhati Beginner Kriya Sequence
+[ADDED] P24. Kapalabhati Progressive Rounds Sequence
+[ADDED] P25. Ujjayi plus Nadi Shodhana Hybrid Sequence
+[ADDED] P26. Restorative Evening Pranayama Sequence
+[ADDED] P27. Morning Energizing Pranayama Sequence
+[ADDED] P28. Stress Relief Office Pranayama Sequence
+[ADDED] P29. Hypertension-Friendly Gentle Pranayama Sequence
+[ADDED] P30. Pre-Meditation Advanced Pranayama Sequence
+
+PRANAYAMA TARGET: 30 sequence records
