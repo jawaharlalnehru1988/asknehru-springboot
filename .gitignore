@@ -13,6 +13,7 @@ target/
 .springBeans
 .sts4-cache
 
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
@@ -25,6 +26,7 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
+/staticfiles/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
@@ -34,13 +36,11 @@ build/
 
 ### Python Virtual Environment ###
 .venv/
+__pycache__/
+*.py[cod]
 
-### Local Django Migration Files ###
+### Local Migration Notes ###
 DJANGO_MIGRATION.md
-api/
-asknehru_django/
-manage.py
-requirements-django.txt
 
 ### Local Scratch Files ###
 ql*

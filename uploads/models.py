@@ -1,0 +1,1 @@
+# Upload endpoints do not have dedicated DB models.
