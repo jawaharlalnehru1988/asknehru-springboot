@@ -12,4 +12,5 @@ urlpatterns = [
     path("api/", include("yoga.urls")),
     path("api/", include("uploads.urls")),
     path("api/", include("planning.urls")),
+    path("api/", include("fruits.urls")),
 ]

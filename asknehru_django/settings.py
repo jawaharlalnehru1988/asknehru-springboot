@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "yoga",
     "uploads",
     "planning",
+    "fruits",
 ]
 
 MIDDLEWARE = [
