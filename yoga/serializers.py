@@ -5,6 +5,7 @@ from .models import PranayamaArticle, PranayamaSequence, YogaPose, YogaSequence
 
 class YogaPoseSerializer(serializers.ModelSerializer):
 	yogaName = serializers.CharField(source="yoga_name")
+	yogaNameEnglish = serializers.SerializerMethodField()
 	blogContent = serializers.SerializerMethodField()
 	audioURL = serializers.SerializerMethodField()
 	imageURL = serializers.SerializerMethodField()
@@ -12,7 +13,16 @@ class YogaPoseSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = YogaPose
-		fields = ["audioURL", "blogContent", "category", "id", "imageURL", "videoURL", "yogaName"]
+		fields = [
+			"audioURL",
+			"blogContent",
+			"category",
+			"id",
+			"imageURL",
+			"videoURL",
+			"yogaName",
+			"yogaNameEnglish",
+		]
 
 	def _null_if_blank(self, value):
 		if value is None:
@@ -20,6 +30,9 @@ class YogaPoseSerializer(serializers.ModelSerializer):
 		if isinstance(value, str) and value.strip() == "":
 			return None
 		return value
+
+	def get_yogaNameEnglish(self, obj):
+		return self._null_if_blank(obj.yoga_name_english)
 
 	def get_blogContent(self, obj):
 		return self._null_if_blank(obj.blog_content)
