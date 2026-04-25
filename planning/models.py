@@ -35,6 +35,8 @@ class Task(models.Model):
 	description = models.TextField(blank=True, null=True)
 	status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="To Do")
 	priority = models.CharField(max_length=20, choices=PRIORITY_CHOICES, default="Medium")
+	effort_hours = models.PositiveIntegerField(blank=True, null=True)
+	effort_minutes = models.PositiveIntegerField(blank=True, null=True)
 	start_date = models.DateTimeField(blank=True, null=True)
 	due_date = models.DateTimeField()
 	assigned_to = models.ForeignKey(
@@ -43,6 +45,13 @@ class Task(models.Model):
 		null=True,
 		blank=True,
 		related_name="tasks",
+	)
+	created_by = models.ForeignKey(
+		User,
+		on_delete=models.SET_NULL,
+		null=True,
+		blank=True,
+		related_name="created_tasks",
 	)
 	epic = models.ForeignKey(Epic, on_delete=models.CASCADE, null=True, blank=True, related_name="tasks")
 	created_at = models.DateTimeField(auto_now_add=True)
