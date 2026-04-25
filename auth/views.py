@@ -20,7 +20,7 @@ class LoginView(APIView):
 		serializer = LoginSerializer(data=request.data)
 		serializer.is_valid(raise_exception=True)
 
-		identifier = serializer.validated_data["usernameOrEmail"].strip()
+		identifier = serializer.validated_data["identifier"]
 		password = serializer.validated_data["password"]
 		if "@" in identifier:
 			matched_user = User.objects.filter(email__iexact=identifier).first()
@@ -40,7 +40,19 @@ class LoginView(APIView):
 			"exp": int((now + timedelta(milliseconds=settings.ASKNEHRU_JWT_EXPIRATION_MS)).timestamp()),
 		}
 		token = jwt.encode(payload, settings.ASKNEHRU_JWT_SECRET, algorithm="HS256")
-		return Response({"token": token, "tokenType": "Bearer"})
+		return Response(
+			{
+				"token": token,
+				"tokenType": "Bearer",
+				"user": {
+					"id": user.id,
+					"username": user.username,
+					"email": user.email,
+					"first_name": user.first_name,
+					"last_name": user.last_name,
+				},
+			}
+		)
 
 
 __all__ = ["LoginView"]
